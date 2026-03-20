@@ -27,9 +27,5 @@ public class InvoiceController {
         return service.getAllInvoices();
     }
 
-    // 4. Pay Invoice
-    @PostMapping("/{id}/pay")
-    public Invoice pay(@PathVariable Long id) {
-        return service.payInvoice(id);
-    }
+
 }

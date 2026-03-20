@@ -36,12 +36,5 @@ public class InvoiceService {
         return repo.findAll();
     }
 
-    // 4. Pay Invoice
-    public Invoice payInvoice(Long id) {
-        Invoice invoice = repo.findById(id)
-                .orElseThrow(() -> new RuntimeException("Invoice not found"));
 
-        invoice.setStatus("PAID");
-        return repo.save(invoice);
-    }
 }
