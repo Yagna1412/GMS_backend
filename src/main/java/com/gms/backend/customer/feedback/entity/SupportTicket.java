@@ -1,74 +1,75 @@
-package com.gms.backend.customer.feedback.controller;
+package com.gms.backend.customer.feedback.entity;
 
-import com.gms.backend.customer.feedback.dto.CreateTicketRequest;
-import com.gms.backend.customer.feedback.dto.TicketResponseDTO;
-import com.gms.backend.customer.feedback.dto.UpdateTicketRequest;
-import com.gms.backend.customer.feedback.service.SupportTicketService;
-import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.util.List;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
-@RestController
-@RequestMapping("/api/tickets")
-@RequiredArgsConstructor
-public class SupportTicketController {
+@Entity
+@Table(name = "support_tickets")
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class SupportTicket {
 
-    private final SupportTicketService ticketService;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    // ─────────────────────────────────────────────
-    // GET /api/tickets?customerId=1
-    // Support Tickets tab — shows all tickets list
-    // ─────────────────────────────────────────────
-    @GetMapping
-    public ResponseEntity<List<TicketResponseDTO>> getTickets(
-            @RequestParam Long customerId
-    ) {
-        return ResponseEntity.ok(ticketService.getTicketsByCustomer(customerId));
+    @Column(name = "ticket_display_id", unique = true)
+    private String ticketDisplayId;
+
+    @Column(name = "customer_id", nullable = false)
+    private Long customerId;
+
+    @Column(name = "issue_type", nullable = false)
+    private String issueType;
+
+    @Column(name = "description", columnDefinition = "TEXT")
+    private String description;
+
+    @Column(name = "attachment_path")
+    private String attachmentPath;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status", nullable = false)
+    private TicketStatus status;
+
+    @Column(name = "date_created")
+    private LocalDate dateCreated;
+
+    @Column(name = "created_at", updatable = false)
+    private LocalDateTime createdAt;
+
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
+
+    @PrePersist
+    public void prePersist() {
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
+        if (this.dateCreated == null) {
+            this.dateCreated = LocalDate.now();
+        }
+        if (this.status == null) {
+            this.status = TicketStatus.Open;
+        }
     }
 
-    // ─────────────────────────────────────────────
-    // GET /api/tickets/{id}
-    // Single ticket detail with full description + attachment
-    // ─────────────────────────────────────────────
-    @GetMapping("/{id}")
-    public ResponseEntity<TicketResponseDTO> getTicketById(@PathVariable Long id) {
-        return ResponseEntity.ok(ticketService.getTicketById(id));
+    @PreUpdate
+    public void preUpdate() {
+        this.updatedAt = LocalDateTime.now();
     }
 
-    // ─────────────────────────────────────────────
-    // POST /api/tickets
-    // Create new ticket — "Open Ticket" button in modal
-    // ─────────────────────────────────────────────
-    @PostMapping
-    public ResponseEntity<TicketResponseDTO> createTicket(
-            @RequestBody CreateTicketRequest request
-    ) {
-        TicketResponseDTO created = ticketService.createTicket(request);
-        return ResponseEntity.status(HttpStatus.CREATED).body(created);
-    }
-
-    // ─────────────────────────────────────────────
-    // PUT /api/tickets/{id}
-    // Update ticket — edit icon (pencil) in table
-    // ─────────────────────────────────────────────
-    @PutMapping("/{id}")
-    public ResponseEntity<TicketResponseDTO> updateTicket(
-            @PathVariable Long id,
-            @RequestBody UpdateTicketRequest request
-    ) {
-        return ResponseEntity.ok(ticketService.updateTicket(id, request));
-    }
-
-    // ─────────────────────────────────────────────
-    // DELETE /api/tickets/{id}
-    // Hard delete — red trash icon in table
-    // ─────────────────────────────────────────────
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteTicket(@PathVariable Long id) {
-        ticketService.deleteTicket(id);
-        return ResponseEntity.noContent().build(); // returns 204 No Content
+    public enum TicketStatus {
+        Open,
+        In_Progress,
+        Resolved,
+        Closed
     }
 }
