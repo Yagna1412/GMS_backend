@@ -1,8 +1,10 @@
 package com.gms.backend.customer.feedback.controller;
 
+import com.gms.backend.customer.feedback.dto.CreateReviewRequest;
 import com.gms.backend.customer.feedback.dto.ReviewResponseDTO;
 import com.gms.backend.customer.feedback.service.ReviewService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,37 +17,26 @@ public class ReviewController {
 
     private final ReviewService reviewService;
 
-    /**
-     * GET /api/reviews?customerId=123
-     *
-     * Returns all reviews submitted by the given customer.
-     * Used by the "My Reviews" tab on the Support & Feedback page.
-     *
-     * NOTE: Once you integrate JWT authentication, replace the
-     * @RequestParam customerId with the value extracted from
-     * the JWT token (see comment below).
-     */
+    // ─────────────────────────────────────────────
+    // GET /api/reviews?customerId=1
+    // My Reviews tab — fetch all reviews
+    // ─────────────────────────────────────────────
     @GetMapping
     public ResponseEntity<List<ReviewResponseDTO>> getMyReviews(
             @RequestParam Long customerId
     ) {
-        /*
-         * -------------------------------------------------------
-         * FUTURE: JWT Integration (when you add Spring Security)
-         * -------------------------------------------------------
-         * Replace @RequestParam Long customerId with this:
-         *
-         *   @AuthenticationPrincipal UserDetails userDetails
-         *
-         * Then extract the customerId like:
-         *
-         *   Long customerId = ((YourCustomUserDetails) userDetails).getCustomerId();
-         *
-         * And remove the @RequestParam above entirely.
-         * -------------------------------------------------------
-         */
+        return ResponseEntity.ok(reviewService.getReviewsByCustomer(customerId));
+    }
 
-        List<ReviewResponseDTO> reviews = reviewService.getReviewsByCustomer(customerId);
-        return ResponseEntity.ok(reviews);
+    // ─────────────────────────────────────────────
+    // POST /api/reviews
+    // Rate Service modal — submit a new review
+    // ─────────────────────────────────────────────
+    @PostMapping
+    public ResponseEntity<ReviewResponseDTO> submitReview(
+            @RequestBody CreateReviewRequest request
+    ) {
+        ReviewResponseDTO created = reviewService.createReview(request);
+        return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
 }
