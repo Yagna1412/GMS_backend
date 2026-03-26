@@ -39,4 +39,10 @@ public class ReviewController {
         ReviewResponseDTO created = reviewService.createReview(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
+    // GET /api/reviews/{id}
+// Returns single review by its database ID
+    @GetMapping("/{id}")
+    public ResponseEntity<ReviewResponseDTO> getReviewById(@PathVariable Long id) {
+        return ResponseEntity.ok(reviewService.getReviewById(id));
+    }
 }

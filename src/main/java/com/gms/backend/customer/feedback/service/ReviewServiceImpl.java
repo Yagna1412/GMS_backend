@@ -75,4 +75,10 @@ public class ReviewServiceImpl implements ReviewService {
                 .feedbackDate(review.getFeedbackDate())
                 .build();
     }
+    @Override
+    public ReviewResponseDTO getReviewById(Long id) {
+        Review review = reviewRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Review not found with id: " + id));
+        return mapToDTO(review, review.getId().intValue());
+    }
 }

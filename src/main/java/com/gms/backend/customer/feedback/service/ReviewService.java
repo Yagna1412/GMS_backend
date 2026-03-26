@@ -14,4 +14,6 @@ public interface ReviewService {
     // POST /api/reviews
     // Submits a new review from Rate Service modal
     ReviewResponseDTO createReview(CreateReviewRequest request);
+    // GET /api/reviews/{id}
+    ReviewResponseDTO getReviewById(Long id);
 }
