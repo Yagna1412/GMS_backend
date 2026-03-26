@@ -16,14 +16,16 @@ public class JobService {
     @Autowired
     private MyJobsRepository repo;
 
-    // ✅ Get All Jobs
+    //  1. Get All Jobs
+
     public List<JobDetailsDTO> getAllJobs() {
         return repo.findAll().stream()
                 .map(this::convertToMyJobsDTO)
                 .collect(Collectors.toList());
     }
 
-    // ✅ Get Jobs By Status (for tabs)
+    //  2.Get Jobs By Status (for tabs)
+
     public List<JobsDTO> getJobsByStatus(String status) {
         List<JobDetails> jobs = repo.findByStatus(status);
 
@@ -32,7 +34,8 @@ public class JobService {
                 .collect(Collectors.toList());
     }
 
-    // ✅ Get Job By ID
+    //  3. Get Job Details by ID
+
     public JobDetailsDTO getJobById(Long id) {
         JobDetails job = repo.findById(id)
                 .orElseThrow(() -> new RuntimeException("Job not found with id: " + id));
@@ -40,7 +43,8 @@ public class JobService {
         return convertToMyJobsDTO(job);
     }
 
-    // ✅ Convert → MyJobsDTO
+    //  Convert → MyJobsDTO
+
     private JobDetailsDTO convertToMyJobsDTO(JobDetails job) {
         JobDetailsDTO dto = new JobDetailsDTO();
 
@@ -59,7 +63,7 @@ public class JobService {
         return dto;
     }
 
-    // ✅ Convert → ServiceDTO (for tabs)
+    //  Convert → ServiceDTO (for tabs)
     private JobsDTO convertToServiceDTO(JobDetails job) {
         JobsDTO dto = new JobsDTO();
 
@@ -71,6 +75,7 @@ public class JobService {
 
         return dto;
     }
+    //  4. Update Job Status by ID
 
     public JobDetailsDTO updateJobStatus(Long id, String status) {
         JobDetails job = repo.findById(id)
@@ -81,6 +86,7 @@ public class JobService {
 
         return convertToMyJobsDTO(updatedJob);
     }
+    // 5. DELETE Job by ID
 
     public void deleteJob(Long id) {
 

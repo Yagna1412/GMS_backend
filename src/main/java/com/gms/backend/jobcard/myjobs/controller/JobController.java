@@ -16,11 +16,13 @@ public class JobController {
 
     private final JobService jobService;
 
-    // 1 + 2
+    //  1. Get All Jobs
+
     @GetMapping
     public List<JobDetailsDTO> getJobs() {
         return jobService.getAllJobs();
     }
+    //  2. Get Jobs By Status (for tabs)
 
     @GetMapping("/status")
     public List<JobsDTO> getJobsByStatus(
@@ -33,18 +35,21 @@ public class JobController {
         // optional: return all jobs if no status passed
         return jobService.getJobsByStatus("BOOKED");
     }
+    //  3. Get Job Details by ID
 
     @GetMapping("/{id}")
     public JobDetailsDTO getJobDetails(@PathVariable Long id) {
         return jobService.getJobById(id);
     }
 
+    //  4. Update Job Status by ID
 
     @PutMapping("/{id}/status")
     public JobDetailsDTO updateStatus(@PathVariable Long id, @RequestParam String status) {
         return jobService.updateJobStatus(id, status);
     }
-    // ✅ DELETE Job by ID
+    // 5. DELETE Job by ID
+
     @DeleteMapping("/{id}")
     public String deleteJob(@PathVariable Long id) {
         jobService.deleteJob(id);
