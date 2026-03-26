@@ -21,6 +21,11 @@ public class Invoice {
 
     private String invoiceNumber;
 
+    // vehicle details
+
+    private String vehicleName;
+    private String vehicleNumber;
+
     // Customer Details
     private String customerName;
     private String customerAddress;

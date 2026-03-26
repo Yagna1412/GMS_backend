@@ -13,6 +13,9 @@ public class InvoiceDetailDto {
 
         private String invoiceNumber;
 
+        private String vehicleName;
+        private String vehicleNumber;
+
         private String customerName;
         private String customerAddress;
         private String customerPhone;
@@ -45,6 +48,8 @@ public class InvoiceDetailDto {
             this.paymentMethod = i.getPaymentMethod();
             this.paymentDate = i.getPaymentDate();
             this.status = i.getStatus();
+            this.vehicleName=i.getVehicleName();
+            this.vehicleNumber=i.getVehicleNumber();
         }
     }
 
