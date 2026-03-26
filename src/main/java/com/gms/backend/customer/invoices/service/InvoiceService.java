@@ -6,9 +6,10 @@ import com.gms.backend.customer.invoices.entity.Invoice;
 import com.gms.backend.customer.invoices.repository.InvoiceRepository;
 import com.gms.backend.customer.invoices.dto.SummaryDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -18,10 +19,13 @@ public class InvoiceService {
     @Autowired
     private InvoiceRepository repo;
 
-    // ✅ 1. Summary
+    // Summary
     public SummaryDto getSummary() {
-
         List<Invoice> invoices = repo.findAll();
+
+        if (invoices == null || invoices.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No invoices found");
+        }
 
         double totalDue = invoices.stream()
                 .filter(i -> "PENDING".equalsIgnoreCase(i.getStatus()))
@@ -33,15 +37,20 @@ public class InvoiceService {
                 .mapToDouble(Invoice::getTotalAmount)
                 .sum();
 
-        double credit = 0.0; // as per your requirement
+        double credit = 0.0;
 
         return new SummaryDto(totalDue, totalPaid, credit);
     }
 
-
-    //invoice list
+    // Invoice list
     public List<InvoiceListDto> getAllInvoices() {
-        return repo.findAll().stream()
+        List<Invoice> invoices = repo.findAll();
+
+        if (invoices == null || invoices.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No invoices found");
+        }
+
+        return invoices.stream()
                 .map(i -> new InvoiceListDto(
                         i.getInvoiceNumber(),
                         i.getServiceDate(),
@@ -51,31 +60,38 @@ public class InvoiceService {
                 .toList();
     }
 
-    //  Download Invoice
+    // Download Invoice
     public InvoiceDetailDto getInvoiceById(Long id) {
+        if (id == null || id <= 0) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid invoice ID: " + id);
+        }
+
         Invoice invoice = repo.findById(id)
-                .orElseThrow(() -> new RuntimeException("Invoice not found"));
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND, "Invoice not found with ID: " + id));
 
         return new InvoiceDetailDto(invoice);
     }
-
-    //  Pay Invoice
+    // Pay Invoice
     public Invoice payInvoice(Long id, String method) {
+        if (id == null || id <= 0) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid invoice ID: " + id);
+        }
 
         Invoice invoice = repo.findById(id)
-                .orElseThrow(() -> new RuntimeException("Invoice not found"));
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND, "Invoice not found with ID: " + id));
 
-        // Prevent double payment
         if ("PAID".equalsIgnoreCase(invoice.getStatus())) {
-            throw new RuntimeException("Invoice already paid");
+            throw new ResponseStatusException(
+                    HttpStatus.CONFLICT, "Invoice with ID " + id + " is already paid");
         }
 
-        // Validate input
         if (method == null || method.isBlank()) {
-            throw new RuntimeException("Payment method is required");
+            throw new ResponseStatusException(
+                    HttpStatus.BAD_REQUEST, "Payment method is required");
         }
 
-        // Update payment details
         invoice.setStatus("PAID");
         invoice.setPaymentMethod(method);
         invoice.setPaymentDate(LocalDateTime.now().toString());
@@ -83,9 +99,15 @@ public class InvoiceService {
         return repo.save(invoice);
     }
 
-    //  Statement
+    // Statement
     public List<InvoiceDetailDto> getStatement() {
-        return repo.findAll().stream()
+        List<Invoice> invoices = repo.findAll();
+
+        if (invoices == null || invoices.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No invoices available for statement");
+        }
+
+        return invoices.stream()
                 .map(InvoiceDetailDto::new)
                 .toList();
     }
