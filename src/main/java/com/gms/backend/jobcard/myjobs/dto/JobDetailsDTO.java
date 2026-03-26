@@ -2,10 +2,9 @@ package com.gms.backend.jobcard.myjobs.dto;
 
 import lombok.Data;
 import java.time.LocalDate;
-import java.util.List;
 
 @Data
-public class MyJobsDTO {
+public class JobDetailsDTO {
 
     private Long id;
     private String title;

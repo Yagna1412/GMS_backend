@@ -3,7 +3,7 @@ import lombok.Data;
 import java.time.LocalDate;
 
 @Data
-public class ServiceDTO {
+public class JobsDTO {
     private String status;
     private LocalDate date;
     private String location;

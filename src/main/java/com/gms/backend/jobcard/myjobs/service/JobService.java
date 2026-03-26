@@ -1,7 +1,7 @@
 package com.gms.backend.jobcard.myjobs.service;
 
-import com.gms.backend.jobcard.myjobs.dto.MyJobsDTO;
-import com.gms.backend.jobcard.myjobs.dto.ServiceDTO;
+import com.gms.backend.jobcard.myjobs.dto.JobDetailsDTO;
+import com.gms.backend.jobcard.myjobs.dto.JobsDTO;
 import com.gms.backend.jobcard.myjobs.entity.JobDetails;
 import com.gms.backend.jobcard.myjobs.repository.MyJobsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,14 +17,14 @@ public class JobService {
     private MyJobsRepository repo;
 
     // ✅ Get All Jobs
-    public List<MyJobsDTO> getAllJobs() {
+    public List<JobDetailsDTO> getAllJobs() {
         return repo.findAll().stream()
                 .map(this::convertToMyJobsDTO)
                 .collect(Collectors.toList());
     }
 
     // ✅ Get Jobs By Status (for tabs)
-    public List<ServiceDTO> getJobsByStatus(String status) {
+    public List<JobsDTO> getJobsByStatus(String status) {
         List<JobDetails> jobs = repo.findByStatus(status);
 
         return jobs.stream()
@@ -33,7 +33,7 @@ public class JobService {
     }
 
     // ✅ Get Job By ID
-    public MyJobsDTO getJobById(Long id) {
+    public JobDetailsDTO getJobById(Long id) {
         JobDetails job = repo.findById(id)
                 .orElseThrow(() -> new RuntimeException("Job not found with id: " + id));
 
@@ -41,8 +41,8 @@ public class JobService {
     }
 
     // ✅ Convert → MyJobsDTO
-    private MyJobsDTO convertToMyJobsDTO(JobDetails job) {
-        MyJobsDTO dto = new MyJobsDTO();
+    private JobDetailsDTO convertToMyJobsDTO(JobDetails job) {
+        JobDetailsDTO dto = new JobDetailsDTO();
 
         dto.setId(job.getId());
         dto.setTitle(job.getTitle());
@@ -60,8 +60,8 @@ public class JobService {
     }
 
     // ✅ Convert → ServiceDTO (for tabs)
-    private ServiceDTO convertToServiceDTO(JobDetails job) {
-        ServiceDTO dto = new ServiceDTO();
+    private JobsDTO convertToServiceDTO(JobDetails job) {
+        JobsDTO dto = new JobsDTO();
 
         dto.setStatus(job.getStatus());
         dto.setDate(job.getDate());
@@ -72,7 +72,7 @@ public class JobService {
         return dto;
     }
 
-    public MyJobsDTO updateJobStatus(Long id, String status) {
+    public JobDetailsDTO updateJobStatus(Long id, String status) {
         JobDetails job = repo.findById(id)
                 .orElseThrow(() -> new RuntimeException("Job not found with id: " + id));
 

@@ -1,8 +1,7 @@
 package com.gms.backend.jobcard.myjobs.controller;
 
-import com.gms.backend.jobcard.myjobs.dto.MyJobsDTO;
-import com.gms.backend.jobcard.myjobs.dto.ServiceDTO;
-import com.gms.backend.jobcard.myjobs.entity.JobDetails;
+import com.gms.backend.jobcard.myjobs.dto.JobDetailsDTO;
+import com.gms.backend.jobcard.myjobs.dto.JobsDTO;
 import com.gms.backend.jobcard.myjobs.service.JobService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -19,12 +18,12 @@ public class JobController {
 
     // 1 + 2
     @GetMapping
-    public List<MyJobsDTO> getJobs() {
+    public List<JobDetailsDTO> getJobs() {
         return jobService.getAllJobs();
     }
 
     @GetMapping("/status")
-    public List<ServiceDTO> getJobsByStatus(
+    public List<JobsDTO> getJobsByStatus(
             @RequestParam(required = false) String status) {
 
         if (status != null) {
@@ -36,13 +35,13 @@ public class JobController {
     }
 
     @GetMapping("/{id}")
-    public MyJobsDTO getJobDetails(@PathVariable Long id) {
+    public JobDetailsDTO getJobDetails(@PathVariable Long id) {
         return jobService.getJobById(id);
     }
 
 
     @PutMapping("/{id}/status")
-    public MyJobsDTO updateStatus(@PathVariable Long id, @RequestParam String status) {
+    public JobDetailsDTO updateStatus(@PathVariable Long id, @RequestParam String status) {
         return jobService.updateJobStatus(id, status);
     }
     // ✅ DELETE Job by ID
