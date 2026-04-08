@@ -7,7 +7,6 @@ import java.time.LocalDate;
 public class JobDetailsDTO {
 
     private Long id;
-    private String title;
     private String status;
     private String location;
     private LocalDate date;
@@ -16,6 +15,5 @@ public class JobDetailsDTO {
     private String carNumber;
     private String mechanic;
     private Double amount;
-    private String services ;
-
+    private String services;
 }
