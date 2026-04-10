@@ -8,6 +8,8 @@ import lombok.Data;
 
 public class InvoiceListDto {
 
+        private Long id;
+
         private String invoiceNumber;
         private String serviceDate;
         private Double totalAmount;

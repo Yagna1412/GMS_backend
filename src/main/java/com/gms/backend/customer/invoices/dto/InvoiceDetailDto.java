@@ -1,6 +1,6 @@
 package com.gms.backend.customer.invoices.dto;
 
-import com.gms.backend.customer.invoices.entity.Invoice;
+import com.gms.backend.customer.invoices.entity.Invoices;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,8 +10,11 @@ import lombok.NoArgsConstructor;
 
 public class InvoiceDetailDto {
 
+    private Long id;
 
-        private String invoiceNumber;
+
+    private String invoiceNumber;
+
 
         private String vehicleName;
         private String vehicleNumber;
@@ -33,7 +36,8 @@ public class InvoiceDetailDto {
         private String paymentDate;
         private String status;
 
-        public InvoiceDetailDto(Invoice i) {
+        public InvoiceDetailDto(Invoices i) {
+            this.id = i.getId();
             this.invoiceNumber = i.getInvoiceNumber();
             this.customerName = i.getCustomerName();
             this.customerAddress = i.getCustomerAddress();
