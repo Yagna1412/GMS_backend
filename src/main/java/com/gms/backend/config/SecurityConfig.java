@@ -3,18 +3,24 @@ package com.gms.backend.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
+@EnableWebSecurity
 public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-
         http
-                .csrf(csrf -> csrf.disable())   // ✅ NEW WAY
+                .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .anyRequest().permitAll()   // allow all
+                        // Allow all feedback and ticket APIs without authentication
+                        .requestMatchers("/api/reviews/**").permitAll()
+                        .requestMatchers("/api/tickets/**").permitAll()
+                        // Allow all other requests too for now
+                        .anyRequest().permitAll()
                 );
 
         return http.build();
