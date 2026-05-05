@@ -17,19 +17,22 @@ public class PartsRequestController {
 
     private final PartsRequestService service;
 
-    // 1. Summary cards — Pending / Approved / Received counts
+    // GET /api/parts-requests/summary
+    // Powers: Pending / Approved / Received cards
     @GetMapping("/summary")
     public ResponseEntity<PartsRequestSummaryDto> getSummary() {
         return ResponseEntity.ok(service.getSummary());
     }
 
-    // 2. Table — all parts requests
+    // GET /api/parts-requests
+    // Powers: table rows
     @GetMapping
     public ResponseEntity<List<PartsRequestResponseDto>> getAll() {
         return ResponseEntity.ok(service.getAllRequests());
     }
 
-    // 3. "+ Request Parts" modal submit
+    // POST /api/parts-requests
+    // Powers: "+ Request Parts" modal submit
     @PostMapping
     public ResponseEntity<PartsRequestResponseDto> create(
             @Valid @RequestBody PartsRequestCreateDto dto) {
@@ -37,7 +40,9 @@ public class PartsRequestController {
                 .body(service.createRequest(dto));
     }
 
-    // 4. Status update (Approve / Reject action on row)
+    // PUT /api/parts-requests/{id}/status
+    // Powers: Approve / Reject action
+    // Body: { "status": "APPROVED" }
     @PutMapping("/{id}/status")
     public ResponseEntity<PartsRequestResponseDto> updateStatus(
             @PathVariable Long id,
@@ -45,7 +50,8 @@ public class PartsRequestController {
         return ResponseEntity.ok(service.updateStatus(id, dto));
     }
 
-    // 5. Edit row action
+    // PUT /api/parts-requests/{id}
+    // Powers: Edit row action
     @PutMapping("/{id}")
     public ResponseEntity<PartsRequestResponseDto> update(
             @PathVariable Long id,
@@ -53,12 +59,11 @@ public class PartsRequestController {
         return ResponseEntity.ok(service.updateRequest(id, dto));
     }
 
-    // 6. Delete row action
+    // DELETE /api/parts-requests/{id}
+    // Powers: Delete row action (PENDING only)
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         service.deleteRequest(id);
         return ResponseEntity.noContent().build();
     }
-
-
 }

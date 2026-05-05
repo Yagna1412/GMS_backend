@@ -9,7 +9,8 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "parts_requests")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -59,5 +60,8 @@ public class PartsRequest {
     @Column(nullable = false, updatable = false)
     private LocalDateTime requestedAt;
 
-
+    @PrePersist
+    protected void onCreate() {
+        requestedAt = LocalDateTime.now();
+    }
 }

@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -23,9 +22,9 @@ public class PartsRequestService {
 
     private final PartsRequestRepo partsRepo;
 
-    // ── Generate Request ID: PR/MUM/2026/0048 ─────────────────────────────
+    // Generate Request ID: PR/MUM/2026/0048
     private String generateRequestId() {
-        String year = String.valueOf(LocalDate.now().getYear());
+        String year   = String.valueOf(LocalDate.now().getYear());
         String prefix = "PR/MUM/" + year + "/";
 
         Optional<String> latest = partsRepo.findMaxRequestIdForYear(prefix + "%");
@@ -39,24 +38,21 @@ public class PartsRequestService {
                 log.warn("Could not parse latest requestId '{}', starting from 1", latest.get());
             }
         }
-
         return prefix + String.format("%04d", nextSeq);
     }
 
-    // ── Summary cards ─────────────────────────────────────────────────────
+    // Summary cards: Pending / Approved / Received
     @Transactional(readOnly = true)
     public PartsRequestSummaryDto getSummary() {
         Object[] result = partsRepo.getSummary();
-        Object[] row = (Object[]) result[0];
-
-        long pending = row[0] != null ? ((Number) row[0]).longValue() : 0L;
+        Object[] row    = (Object[]) result[0];
+        long pending  = row[0] != null ? ((Number) row[0]).longValue() : 0L;
         long approved = row[1] != null ? ((Number) row[1]).longValue() : 0L;
         long received = row[2] != null ? ((Number) row[2]).longValue() : 0L;
-
         return new PartsRequestSummaryDto(pending, approved, received);
     }
 
-    // ── Get all requests ──────────────────────────────────────────────────
+    // Table: get all requests
     @Transactional(readOnly = true)
     public List<PartsRequestResponseDto> getAllRequests() {
         return partsRepo.findAll()
@@ -65,10 +61,9 @@ public class PartsRequestService {
                 .collect(Collectors.toList());
     }
 
-    // ── Create request ────────────────────────────────────────────────────
+    // "+ Request Parts" modal: create
     @Transactional
     public PartsRequestResponseDto createRequest(PartsRequestCreateDto dto) {
-
         PartsRequest request = PartsRequest.builder()
                 .requestId(generateRequestId())
                 .jobCardId(dto.getJobCardId().trim().toUpperCase())
@@ -79,20 +74,17 @@ public class PartsRequestService {
                         ? Type.valueOf(dto.getType().toUpperCase())
                         : Type.ADDITIONAL)
                 .status(Status.PENDING)
-                .requestedAt(LocalDateTime.now())   // ✅ FIX ADDED HERE
                 .build();
+        // requestedAt is set automatically by @PrePersist in entity
 
         PartsRequest saved = partsRepo.save(request);
-
         log.info("Parts request created: {}", saved.getRequestId());
-
         return toDto(saved);
     }
 
-    // ── Update request (only PENDING) ─────────────────────────────────────
+    // Edit row action: update details (PENDING only)
     @Transactional
     public PartsRequestResponseDto updateRequest(Long id, PartsRequestCreateDto dto) {
-
         PartsRequest request = findById(id);
 
         if (request.getStatus() != Status.PENDING) {
@@ -106,24 +98,19 @@ public class PartsRequestService {
         request.setQuantity(dto.getQuantity());
         request.setReason(dto.getReason().trim());
 
-        // optional: update timestamp
-        request.setRequestedAt(LocalDateTime.now());
-
         if (dto.getType() != null) {
             request.setType(Type.valueOf(dto.getType().toUpperCase()));
         }
+        // requestedAt is NOT touched — it is a creation timestamp only
 
         PartsRequest saved = partsRepo.save(request);
-
         log.info("Parts request updated: {}", saved.getRequestId());
-
         return toDto(saved);
     }
 
-    // ── Update status ─────────────────────────────────────────────────────
+    // Status action: Approve / Reject / Received
     @Transactional
     public PartsRequestResponseDto updateStatus(Long id, StatusUpdateDto dto) {
-
         PartsRequest request = findById(id);
 
         Status newStatus;
@@ -139,14 +126,12 @@ public class PartsRequestService {
                 request.getRequestId(), request.getStatus(), newStatus);
 
         request.setStatus(newStatus);
-
         return toDto(partsRepo.save(request));
     }
 
-    // ── Delete request ────────────────────────────────────────────────────
+    // Delete row action (PENDING only)
     @Transactional
     public void deleteRequest(Long id) {
-
         PartsRequest request = findById(id);
 
         if (request.getStatus() != Status.PENDING) {
@@ -156,11 +141,10 @@ public class PartsRequestService {
         }
 
         partsRepo.deleteById(id);
-
         log.info("Parts request deleted: id={}", id);
     }
 
-    // ── Helper methods ────────────────────────────────────────────────────
+    // Private helpers
     private PartsRequest findById(Long id) {
         return partsRepo.findById(id)
                 .orElseThrow(() -> new RuntimeException(
@@ -174,7 +158,7 @@ public class PartsRequestService {
                 .jobCardId(req.getJobCardId())
                 .partName(req.getPartName())
                 .quantity(req.getQuantity())
-                .type(req.getType() != null ? req.getType().name() : null)
+                .type(req.getType()     != null ? req.getType().name()   : null)
                 .status(req.getStatus() != null ? req.getStatus().name() : null)
                 .reason(req.getReason())
                 .requestedAt(req.getRequestedAt())

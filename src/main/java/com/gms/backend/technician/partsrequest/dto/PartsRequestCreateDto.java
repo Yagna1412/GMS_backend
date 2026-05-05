@@ -21,5 +21,5 @@ public class PartsRequestCreateDto {
     @NotBlank(message = "Reason is required")
     private String reason;
 
-    private String type; // optional, defaults to ADDITIONAL
+    private String type; // optional — defaults to ADDITIONAL
 }
