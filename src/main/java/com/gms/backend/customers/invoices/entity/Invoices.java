@@ -1,4 +1,4 @@
-package com.gms.backend.customer.invoices.entity;
+package com.gms.backend.customers.invoices.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

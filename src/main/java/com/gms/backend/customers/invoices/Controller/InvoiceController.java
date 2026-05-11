@@ -1,11 +1,11 @@
-package com.gms.backend.customer.invoices.Controller;
+package com.gms.backend.customers.invoices.Controller;
 
-import com.gms.backend.customer.invoices.dto.InvoiceDetailDto;
-import com.gms.backend.customer.invoices.dto.InvoiceListDto;
-import com.gms.backend.customer.invoices.dto.PaymentRequestDto;
-import com.gms.backend.customer.invoices.dto.SummaryDto;
-import com.gms.backend.customer.invoices.entity.Invoices;
-import com.gms.backend.customer.invoices.service.InvoiceService;
+import com.gms.backend.customers.invoices.dto.InvoiceDetailDto;
+import com.gms.backend.customers.invoices.dto.InvoiceListDto;
+import com.gms.backend.customers.invoices.dto.PaymentRequestDto;
+import com.gms.backend.customers.invoices.dto.SummaryDto;
+import com.gms.backend.customers.invoices.entity.Invoices;
+import com.gms.backend.customers.invoices.service.InvoiceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

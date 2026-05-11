@@ -1,6 +1,6 @@
-package com.gms.backend.customer.invoices.dto;
+package com.gms.backend.customers.invoices.dto;
 
-import com.gms.backend.customer.invoices.entity.Invoices;
+import com.gms.backend.customers.invoices.entity.Invoices;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
