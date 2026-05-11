@@ -1,4 +1,4 @@
-package com.gms.backend.customer.feedbacks.entity;
+package com.gms.backend.customer.feedback.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

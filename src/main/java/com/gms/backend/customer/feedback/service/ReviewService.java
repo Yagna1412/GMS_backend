@@ -1,7 +1,7 @@
-package com.gms.backend.customer.feedbacks.service;
+package com.gms.backend.customer.feedback.service;
 
-import com.gms.backend.customer.feedbacks.dto.CreateReviewRequest;
-import com.gms.backend.customer.feedbacks.dto.ReviewResponseDTO;
+import com.gms.backend.customer.feedback.dto.CreateReviewRequest;
+import com.gms.backend.customer.feedback.dto.ReviewResponseDTO;
 
 import java.util.List;
 

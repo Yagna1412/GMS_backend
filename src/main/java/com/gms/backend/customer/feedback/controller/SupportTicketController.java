@@ -1,9 +1,9 @@
-package com.gms.backend.customer.feedbacks.controller;
+package com.gms.backend.customer.feedback.controller;
 
-import com.gms.backend.customer.feedbacks.dto.CreateTicketRequest;
-import com.gms.backend.customer.feedbacks.dto.TicketResponseDTO;
-import com.gms.backend.customer.feedbacks.dto.UpdateTicketRequest;
-import com.gms.backend.customer.feedbacks.service.SupportTicketService;
+import com.gms.backend.customer.feedback.dto.CreateTicketRequest;
+import com.gms.backend.customer.feedback.dto.TicketResponseDTO;
+import com.gms.backend.customer.feedback.dto.UpdateTicketRequest;
+import com.gms.backend.customer.feedback.service.SupportTicketService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
