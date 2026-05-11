@@ -1,4 +1,4 @@
-package com.gms.backend.customer.dto;
+package com.gms.backend.customer.reports.dto;
 
 import java.time.LocalDate;
 

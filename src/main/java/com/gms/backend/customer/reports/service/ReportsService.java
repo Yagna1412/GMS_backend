@@ -1,8 +1,8 @@
-package com.gms.backend.customer.service;
+package com.gms.backend.customer.reports.service;
 
-import com.gms.backend.customer.dto.*;
-import com.gms.backend.customer.entity.ServiceHistory;
-import com.gms.backend.customer.repository.ReportsRepository;
+import com.gms.backend.customer.reports.dto.*;
+import com.gms.backend.customer.reports.entity.ServiceHistory;
+import com.gms.backend.customer.reports.repository.ReportsRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

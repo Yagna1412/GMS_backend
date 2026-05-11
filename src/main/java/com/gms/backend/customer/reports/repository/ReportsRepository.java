@@ -1,9 +1,9 @@
-package com.gms.backend.customer.repository;
+package com.gms.backend.customer.reports.repository;
 
-import com.gms.backend.customer.dto.AverageCostDTO;
-import com.gms.backend.customer.dto.MonthlySpendingDTO;
-import com.gms.backend.customer.dto.ServiceHistoryDTO;
-import com.gms.backend.customer.entity.ServiceHistory;
+import com.gms.backend.customer.reports.dto.AverageCostDTO;
+import com.gms.backend.customer.reports.dto.MonthlySpendingDTO;
+import com.gms.backend.customer.reports.dto.ServiceHistoryDTO;
+import com.gms.backend.customer.reports.entity.ServiceHistory;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;

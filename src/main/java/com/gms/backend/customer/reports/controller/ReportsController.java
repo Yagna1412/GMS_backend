@@ -1,8 +1,8 @@
-package com.gms.backend.customer.controller;
+package com.gms.backend.customer.reports.controller;
 
-import com.gms.backend.customer.dto.*;
-import com.gms.backend.customer.entity.ServiceHistory;
-import com.gms.backend.customer.service.ReportsService;
+import com.gms.backend.customer.reports.dto.*;
+import com.gms.backend.customer.reports.entity.ServiceHistory;
+import com.gms.backend.customer.reports.service.ReportsService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

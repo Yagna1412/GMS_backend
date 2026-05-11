@@ -1,4 +1,4 @@
-package com.gms.backend.customer.entity;
+package com.gms.backend.customer.reports.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
