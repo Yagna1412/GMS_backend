@@ -1,7 +1,7 @@
-package com.gms.backend.jobcard.myjobs.controller;
+package com.gms.backend.customer.myjobs.controller;
 
-import com.gms.backend.jobcard.myjobs.dto.JobDetailsDTO;
-import com.gms.backend.jobcard.myjobs.service.JobService;
+import com.gms.backend.customer.myjobs.dto.JobDetailsDTO;
+import com.gms.backend.customer.myjobs.service.JobService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

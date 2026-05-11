@@ -1,4 +1,4 @@
-package com.gms.backend.jobcard.myjobs.dto;
+package com.gms.backend.customer.myjobs.dto;
 
 import lombok.Data;
 import java.time.LocalDate;

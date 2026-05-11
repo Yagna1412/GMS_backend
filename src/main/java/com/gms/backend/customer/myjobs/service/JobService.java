@@ -1,9 +1,8 @@
-package com.gms.backend.jobcard.myjobs.service;
+package com.gms.backend.customer.myjobs.service;
 
-import com.gms.backend.jobcard.myjobs.dto.JobDetailsDTO;
-import com.gms.backend.jobcard.myjobs.dto.JobsDTO;
-import com.gms.backend.jobcard.myjobs.entity.JobDetails;
-import com.gms.backend.jobcard.myjobs.repository.MyJobsRepository;
+import com.gms.backend.customer.myjobs.dto.JobDetailsDTO;
+import com.gms.backend.customer.myjobs.entity.JobDetails;
+import com.gms.backend.customer.myjobs.repository.MyJobsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

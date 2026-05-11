@@ -1,11 +1,15 @@
-package com.gms.backend.jobcard.myjobs.dto;
-
+package com.gms.backend.customer.myjobs.entity;
+import jakarta.persistence.*;
 import lombok.Data;
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "job_details")
 @Data
-public class JobDetailsDTO {
+public class JobDetails {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String status;
     private String location;
