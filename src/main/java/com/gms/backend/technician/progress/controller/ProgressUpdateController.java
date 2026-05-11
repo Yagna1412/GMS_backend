@@ -9,6 +9,17 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
+@CrossOrigin(
+        origins = "http://localhost:3000",
+        allowedHeaders = "*",
+        methods = {
+                RequestMethod.GET,
+                RequestMethod.POST,
+                RequestMethod.PUT,
+                RequestMethod.DELETE,
+                RequestMethod.OPTIONS
+        }
+)
 @RestController
 @RequestMapping("/api/progress")
 public class ProgressUpdateController {
@@ -16,25 +27,64 @@ public class ProgressUpdateController {
     @Autowired
     private ProgressUpdateService service;
 
-    //  ADD UPDATE
+    // ADD UPDATE
     @PostMapping("/add")
     public ResponseEntity<?> addUpdate(
-            @RequestParam String jobId,
-            @RequestParam String note,
-            @RequestParam(required = false) List<MultipartFile> files
+
+            @RequestParam("jobId") String jobId,
+
+            @RequestParam("note") String note,
+
+            @RequestParam(value = "files", required = false)
+            List<MultipartFile> files
     ) {
-        return ResponseEntity.ok(service.addUpdate(jobId, note, files));
+
+        try {
+
+            return ResponseEntity.ok(
+                    service.addUpdate(jobId, note, files)
+            );
+
+        } catch (Exception e) {
+
+            return ResponseEntity.badRequest()
+                    .body(e.getMessage());
+        }
     }
 
-    //  GET UPDATES
+    // GET ALL UPDATES BY JOB ID
     @GetMapping("/{jobId}")
-    public ResponseEntity<?> getUpdates(@PathVariable String jobId) {
-        return ResponseEntity.ok(service.getUpdates(jobId));
+    public ResponseEntity<?> getUpdates(
+            @PathVariable String jobId
+    ) {
+
+        try {
+
+            return ResponseEntity.ok(
+                    service.getUpdates(jobId)
+            );
+
+        } catch (Exception e) {
+
+            return ResponseEntity.badRequest()
+                    .body(e.getMessage());
+        }
     }
 
-    //  ACTIVE JOBS API
+    // GET ACTIVE JOBS
     @GetMapping("/active-jobs")
     public ResponseEntity<?> getActiveJobs() {
-        return ResponseEntity.ok(service.getActiveJobs());
+
+        try {
+
+            return ResponseEntity.ok(
+                    service.getActiveJobs()
+            );
+
+        } catch (Exception e) {
+
+            return ResponseEntity.badRequest()
+                    .body(e.getMessage());
+        }
     }
 }
