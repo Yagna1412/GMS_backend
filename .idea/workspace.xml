@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="39076ab3-c1e6-4369-aa75-58da39a7e4d8" name="Changes" comment="Final progress update code">
+    <list default="true" id="39076ab3-c1e6-4369-aa75-58da39a7e4d8" name="Changes" comment="Feature/mechanic-progress update code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gms/backend/technician/progress/controller/ProgressUpdateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/technician/progress/controller/ProgressUpdateController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,11 +93,20 @@
       <option name="project" value="LOCAL" />
       <updated>1778058057728</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Feature/mechanic-progress update code">
+      <option name="closed" value="true" />
+      <created>1778503633494</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1778503633494</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Final progress update code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Final progress update code" />
+    <MESSAGE value="Feature/mechanic-progress update code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feature/mechanic-progress update code" />
   </component>
 </project>
