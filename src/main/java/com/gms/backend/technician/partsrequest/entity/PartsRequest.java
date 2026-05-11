@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 public class PartsRequest {
 
     public enum Status {
-        PENDING, APPROVED, REJECTED, RECEIVED
+        Pending, Approved, Rejected, Received
     }
 
     public enum Type {
@@ -55,7 +55,7 @@ public class PartsRequest {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     @Builder.Default
-    private Status status = Status.PENDING;
+    private Status status = Status.Pending;
 
     @Column(nullable = false, updatable = false)
     private LocalDateTime requestedAt;

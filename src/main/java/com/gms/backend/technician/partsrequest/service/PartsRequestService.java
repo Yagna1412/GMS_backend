@@ -73,7 +73,7 @@ public class PartsRequestService {
                 .type(dto.getType() != null
                         ? Type.valueOf(dto.getType().toUpperCase())
                         : Type.ADDITIONAL)
-                .status(Status.PENDING)
+                .status(Status.Pending)
                 .build();
         // requestedAt is set automatically by @PrePersist in entity
 
@@ -87,7 +87,7 @@ public class PartsRequestService {
     public PartsRequestResponseDto updateRequest(Long id, PartsRequestCreateDto dto) {
         PartsRequest request = findById(id);
 
-        if (request.getStatus() != Status.PENDING) {
+        if (request.getStatus() != Status.Pending) {
             throw new IllegalStateException(
                     "Cannot edit a request with status: " + request.getStatus()
                             + ". Only PENDING requests can be edited.");
@@ -134,7 +134,7 @@ public class PartsRequestService {
     public void deleteRequest(Long id) {
         PartsRequest request = findById(id);
 
-        if (request.getStatus() != Status.PENDING) {
+        if (request.getStatus() != Status.Pending) {
             throw new IllegalStateException(
                     "Cannot delete a request with status: " + request.getStatus()
                             + ". Only PENDING requests can be deleted.");
