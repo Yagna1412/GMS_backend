@@ -1,7 +1,7 @@
-package com.gms.backend.MyVehicle.controller;
+package com.gms.backend.customer.myvehicle.controller;
 
-import com.gms.backend.MyVehicle.dto.MyVehicleDto;
-import com.gms.backend.MyVehicle.service.MyVehicleService;
+import com.gms.backend.customer.myvehicle.dto.MyVehicleDto;
+import com.gms.backend.customer.myvehicle.service.MyVehicleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

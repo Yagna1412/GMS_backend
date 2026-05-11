@@ -1,8 +1,8 @@
-package com.gms.backend.MyVehicle.service;
+package com.gms.backend.customer.myvehicle.service;
 
-import com.gms.backend.MyVehicle.dto.MyVehicleDto;
-import com.gms.backend.MyVehicle.entity.MyVehicleEntity;
-import com.gms.backend.MyVehicle.repository.MyVehicleRepository;
+import com.gms.backend.customer.myvehicle.dto.MyVehicleDto;
+import com.gms.backend.customer.myvehicle.entity.MyVehicleEntity;
+import com.gms.backend.customer.myvehicle.repository.MyVehicleRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

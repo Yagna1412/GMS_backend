@@ -1,6 +1,6 @@
-package com.gms.backend.MyVehicle.repository;
+package com.gms.backend.customer.myvehicle.repository;
 
-import com.gms.backend.MyVehicle.entity.MyVehicleEntity;
+import com.gms.backend.customer.myvehicle.entity.MyVehicleEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

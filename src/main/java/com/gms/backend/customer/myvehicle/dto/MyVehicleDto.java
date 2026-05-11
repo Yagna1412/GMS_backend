@@ -1,15 +1,10 @@
-package com.gms.backend.MyVehicle.entity;
+package com.gms.backend.customer.myvehicle.dto;
 
-import jakarta.persistence.*;
 import lombok.Data;
 
-@Entity
-@Table(name = "vehicles")
 @Data
-public class MyVehicleEntity {
+public class MyVehicleDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Long customerId;
     private String make;
