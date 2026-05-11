@@ -1,10 +1,10 @@
-package com.gms.backend.customers.invoices.service;
+package com.gms.backend.customer.invoices.service;
 
-import com.gms.backend.customers.invoices.dto.InvoiceDetailDto;
-import com.gms.backend.customers.invoices.dto.InvoiceListDto;
-import com.gms.backend.customers.invoices.entity.Invoices;
-import com.gms.backend.customers.invoices.repository.InvoiceRepository;
-import com.gms.backend.customers.invoices.dto.SummaryDto;
+import com.gms.backend.customer.invoices.dto.InvoiceDetailDto;
+import com.gms.backend.customer.invoices.dto.InvoiceListDto;
+import com.gms.backend.customer.invoices.entity.Invoices;
+import com.gms.backend.customer.invoices.repository.InvoiceRepository;
+import com.gms.backend.customer.invoices.dto.SummaryDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;

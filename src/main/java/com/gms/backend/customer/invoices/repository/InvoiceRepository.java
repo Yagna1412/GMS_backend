@@ -1,6 +1,6 @@
-package com.gms.backend.customers.invoices.repository;
+package com.gms.backend.customer.invoices.repository;
 
-import com.gms.backend.customers.invoices.entity.Invoices;
+import com.gms.backend.customer.invoices.entity.Invoices;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
