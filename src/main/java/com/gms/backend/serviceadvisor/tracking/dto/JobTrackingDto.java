@@ -5,9 +5,8 @@ public class JobTrackingDto {
     private Long jobCardId;
     private String status;
     private String remarks;
-
-    // ✅ NEW (UI kosam)
     private int progress;
+
     private String customerName;
     private String technicianName;
 
@@ -35,7 +34,6 @@ public class JobTrackingDto {
         this.remarks = remarks;
     }
 
-    // ✅ NEW getters/setters
     public int getProgress() {
         return progress;
     }

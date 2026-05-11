@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/api/tracking")
 public class JobTrackingController {
@@ -19,40 +20,53 @@ public class JobTrackingController {
         this.service = service;
     }
 
-    /*// CREATE
+    // =========================
+    // CREATE
+    // =========================
     @PostMapping
-    public JobTracking createTracking(@RequestBody JobTrackingDto dto) {
+    public JobTracking createTracking(
+            @RequestBody JobTrackingDto dto
+    ) {
         return service.createTracking(dto);
     }
 
-    // GET HISTORY (single job)
-    @GetMapping("/{jobCardId}")
-    public List<JobTracking> getTracking(@PathVariable Long jobCardId) {
-        return service.getTrackingByJob(jobCardId);
-    }*/
-
-    // JOB TABLE
+    // =========================
+    // GET ALL JOBS
+    // =========================
     @GetMapping("/jobs")
     public List<JobTrackingDto> getAllJobs() {
         return service.getAllJobStatuses();
     }
 
-    // SUMMARY CARDS
+    // =========================
+    // SUMMARY
+    // =========================
     @GetMapping("/summary")
     public Map<String, Long> getSummary() {
         return service.getSummaryCounts();
     }
 
-    // UPDATE (FIXED)
+    // =========================
+    // UPDATE
+    // =========================
     @PutMapping("/{jobCardId}")
-    public JobTracking updateTracking(@PathVariable Long jobCardId,
-                                      @RequestBody JobTrackingDto dto) {
+    public JobTracking updateTracking(
+            @PathVariable Long jobCardId,
+            @RequestBody JobTrackingDto dto
+    ) {
         return service.updateTracking(jobCardId, dto);
     }
 
-    // DELETE (NEW)
+    // =========================
+    // DELETE
+    // =========================
     @DeleteMapping("/{jobCardId}")
-    public void deleteTracking(@PathVariable Long jobCardId) {
-        service.deleteTracking(jobCardId);
+    public String deleteTracking(
+            @PathVariable Long jobCardId
+    ) {
+
+        service.deleteByJobCardId(jobCardId);
+
+        return "Job deleted successfully";
     }
 }

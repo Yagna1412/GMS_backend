@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name="jobTracking")
+@Table(name = "job_tracking")
 public class JobTracking {
 
     @Id
@@ -12,14 +12,20 @@ public class JobTracking {
     private Long id;
 
     private Long jobCardId;
+
     private String status;
+
     private String remarks;
 
-    // ✅ NEW
     private int progress;
 
-    // ✅ NEW (latest record identify cheyadaniki)
     private LocalDateTime updatedAt;
+
+    @PrePersist
+    @PreUpdate
+    public void updateTimestamp() {
+        this.updatedAt = LocalDateTime.now();
+    }
 
     public Long getId() {
         return id;
@@ -49,7 +55,6 @@ public class JobTracking {
         this.remarks = remarks;
     }
 
-    // ✅ NEW
     public int getProgress() {
         return progress;
     }
@@ -60,9 +65,5 @@ public class JobTracking {
 
     public LocalDateTime getUpdatedAt() {
         return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
     }
 }
