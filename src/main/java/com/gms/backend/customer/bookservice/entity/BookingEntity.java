@@ -1,4 +1,4 @@
-package com.gms.backend.BookingService.entity;
+package com.gms.backend.customer.bookservice.entity;
 
 
 import jakarta.persistence.*;

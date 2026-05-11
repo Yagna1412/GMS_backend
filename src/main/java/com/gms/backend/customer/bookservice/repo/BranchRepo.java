@@ -1,6 +1,6 @@
-package com.gms.backend.BookingService.repo;
+package com.gms.backend.customer.bookservice.repo;
 
-import com.gms.backend.BookingService.entity.BranchEntity;
+import com.gms.backend.customer.bookservice.entity.BranchEntity;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.data.repository.query.Param;
 

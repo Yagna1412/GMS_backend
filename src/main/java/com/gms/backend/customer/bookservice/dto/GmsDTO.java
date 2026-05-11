@@ -1,4 +1,4 @@
-package com.gms.backend.BookingService.DTO;
+package com.gms.backend.customer.bookservice.dto;
 
 import lombok.*;
 

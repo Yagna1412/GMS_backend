@@ -1,8 +1,8 @@
-package com.gms.backend.BookingService.service;
+package com.gms.backend.customer.bookservice.service;
 
-import com.gms.backend.BookingService.DTO.GmsDTO;
-import com.gms.backend.BookingService.entity.*;
-import com.gms.backend.BookingService.repo.*;
+import com.gms.backend.customer.bookservice.dto.GmsDTO;
+import com.gms.backend.customer.bookservice.entity.*;
+import com.gms.backend.customer.bookservice.repo.*;
 import com.gms.backend.exception.GmsException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;

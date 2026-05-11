@@ -1,8 +1,8 @@
-package com.gms.backend.BookingService.controller;
+package com.gms.backend.customer.bookservice.controller;
 
-import com.gms.backend.BookingService.DTO.GmsDTO;
-import com.gms.backend.BookingService.entity.*;
-import com.gms.backend.BookingService.service.GmsService;
+import com.gms.backend.customer.bookservice.dto.GmsDTO;
+import com.gms.backend.customer.bookservice.entity.*;
+import com.gms.backend.customer.bookservice.service.GmsService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
