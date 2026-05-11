@@ -4,16 +4,52 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="39076ab3-c1e6-4369-aa75-58da39a7e4d8" name="Changes" comment="" />
+    <list default="true" id="39076ab3-c1e6-4369-aa75-58da39a7e4d8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/technician/training/Controller/CertificationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/technician/training/Controller/DashboardController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/technician/training/Controller/TrainingController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/technician/training/Dto/CertificationDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/technician/training/Dto/DashboardDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/technician/training/Dto/MaterialDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/technician/training/Dto/TrainingDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/technician/training/Entity/Certification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/technician/training/Entity/Material.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/technician/training/Entity/Training.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/technician/training/Entity/UserCertification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/technician/training/Entity/UserTraining.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/technician/training/Repository/CertificationRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/technician/training/Repository/MaterialRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/technician/training/Repository/TrainingRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/technician/training/Repository/UserCertificationRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/technician/training/Repository/UserTrainingRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/technician/training/Service/CertificationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/technician/training/Service/DashboardService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/technician/training/Service/TrainingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_C:/Users/Katku/OneDrive/Desktop/GMS_backend" value="3CNcdIOnWAzvgvWEFR24WJ9Gyh2" />
+    </persistenceIdMap>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="dev2" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -26,25 +62,30 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Yagna1412/GMS_backend&quot;,
-    &quot;accountId&quot;: &quot;522213d3-ba66-44c5-a2f1-5e8ee08488c5&quot;
+    &quot;url&quot;: &quot;https://github.com/Yagna1412/GMS_backend.git&quot;,
+    &quot;accountId&quot;: &quot;3677f588-240a-452d-942e-8f133818c674&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="3CNcdIOnWAzvgvWEFR24WJ9Gyh2" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.GmsApplication.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "dev2",
-    "kotlin-language-version-configured": "true"
+    "git-widget-placeholder": "features/mechanic-training",
+    "kotlin-language-version-configured": "true",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="RunManager">
@@ -67,5 +108,24 @@
       <updated>1776229554168</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
   </component>
 </project>
