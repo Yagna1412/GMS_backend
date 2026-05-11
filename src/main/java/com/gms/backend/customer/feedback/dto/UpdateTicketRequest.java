@@ -1,6 +1,6 @@
-package com.gms.backend.customer.feedback.dto;
+package com.gms.backend.customer.feedbacks.dto;
 
-import com.gms.backend.customer.feedback.entity.SupportTicket.TicketStatus;
+import com.gms.backend.customer.feedbacks.entity.SupportTicket.TicketStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

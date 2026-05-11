@@ -1,9 +1,9 @@
-package com.gms.backend.customer.feedback.service;
+package com.gms.backend.customer.feedbacks.service;
 
-import com.gms.backend.customer.feedback.dto.CreateReviewRequest;
-import com.gms.backend.customer.feedback.dto.ReviewResponseDTO;
-import com.gms.backend.customer.feedback.entity.Review;
-import com.gms.backend.customer.feedback.repository.ReviewRepository;
+import com.gms.backend.customer.feedbacks.dto.CreateReviewRequest;
+import com.gms.backend.customer.feedbacks.dto.ReviewResponseDTO;
+import com.gms.backend.customer.feedbacks.entity.Review;
+import com.gms.backend.customer.feedbacks.repository.ReviewRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

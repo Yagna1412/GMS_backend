@@ -1,4 +1,4 @@
-package com.gms.backend.customer.feedback.dto;
+package com.gms.backend.customer.feedbacks.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

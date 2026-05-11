@@ -1,8 +1,8 @@
-package com.gms.backend.customer.feedback.controller;
+package com.gms.backend.customer.feedbacks.controller;
 
-import com.gms.backend.customer.feedback.dto.CreateReviewRequest;
-import com.gms.backend.customer.feedback.dto.ReviewResponseDTO;
-import com.gms.backend.customer.feedback.service.ReviewService;
+import com.gms.backend.customer.feedbacks.dto.CreateReviewRequest;
+import com.gms.backend.customer.feedbacks.dto.ReviewResponseDTO;
+import com.gms.backend.customer.feedbacks.service.ReviewService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

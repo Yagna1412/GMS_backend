@@ -1,6 +1,6 @@
-package com.gms.backend.customer.feedback.repository;
+package com.gms.backend.customer.feedbacks.repository;
 
-import com.gms.backend.customer.feedback.entity.SupportTicket;
+import com.gms.backend.customer.feedbacks.entity.SupportTicket;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
