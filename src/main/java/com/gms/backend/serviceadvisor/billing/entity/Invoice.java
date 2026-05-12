@@ -15,16 +15,24 @@ public class Invoice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "job_card")
+    private String jobCard;
 
-    private String invoiceId;     // INV/MUM/2024/0089
-    private String jobCard;       // JC/MUM/2024/0097
+    @Column(name = "invoice_id")
+    private String invoiceId;
+
+    @Column(name = "customer_name")
     private String customerName;
 
-    private Double amount;
+    @Column(name = "payment_status")
+    private String paymentStatus;
 
-    private String paymentStatus;   // PAID / PENDING
-    private String deliveryStatus;  // READY / DELIVERED
+    @Column(name = "delivery_status")
+    private String deliveryStatus;
 
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
+
+    @Column(name = "delivered_at")
     private LocalDateTime deliveredAt;
 }
