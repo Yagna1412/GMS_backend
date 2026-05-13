@@ -4,16 +4,56 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="39076ab3-c1e6-4369-aa75-58da39a7e4d8" name="Changes" comment="" />
+    <list default="true" id="39076ab3-c1e6-4369-aa75-58da39a7e4d8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/serviceadvisor/dashboard/controller/ServiceAdvisorDashboardController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/serviceadvisor/dashboard/dto/ActiveComplaintDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/serviceadvisor/dashboard/dto/ActiveComplaintsResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/serviceadvisor/dashboard/dto/AppointmentKpiDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/serviceadvisor/dashboard/dto/AppointmentScheduleDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/serviceadvisor/dashboard/dto/DashboardKpiResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/serviceadvisor/dashboard/dto/DashboardStatusResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/serviceadvisor/dashboard/dto/DeliveryKpiDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/serviceadvisor/dashboard/dto/EstimationKpiDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/serviceadvisor/dashboard/dto/JobKpiDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/serviceadvisor/dashboard/dto/PendingEstimationDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/serviceadvisor/dashboard/dto/PendingEstimationsResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/serviceadvisor/dashboard/dto/TodayScheduleResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/serviceadvisor/dashboard/entity/Appointment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/serviceadvisor/dashboard/entity/Complaint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/serviceadvisor/dashboard/entity/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/serviceadvisor/dashboard/entity/Estimation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/serviceadvisor/dashboard/entity/JobCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/serviceadvisor/dashboard/enums/AppointmentStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/serviceadvisor/dashboard/enums/ComplaintPriority.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/serviceadvisor/dashboard/enums/ComplaintStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/serviceadvisor/dashboard/enums/EstimationStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/serviceadvisor/dashboard/enums/JobCardStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/serviceadvisor/dashboard/repository/AppointmentRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/serviceadvisor/dashboard/repository/ComplaintRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/serviceadvisor/dashboard/repository/CustomerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/serviceadvisor/dashboard/repository/EstimationRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/serviceadvisor/dashboard/repository/JobCardRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/serviceadvisor/dashboard/service/ServiceAdvisorDashboardService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gms/backend/serviceadvisor/dashboard/service/impl/ServiceAdvisorDashboardServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="dev" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -24,29 +64,32 @@
     &quot;assignee&quot;: &quot;dineshmunagala&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Yagna1412/GMS_backend&quot;,
-    &quot;accountId&quot;: &quot;522213d3-ba66-44c5-a2f1-5e8ee08488c5&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Yagna1412/GMS_backend.git",
+    "accountId": "dc1f3a03-113a-4801-afa3-f644b1e4c33f"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="3CNcdIOnWAzvgvWEFR24WJ9Gyh2" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "dev2",
-    "kotlin-language-version-configured": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev2&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
