@@ -13,7 +13,7 @@ public class StockMovementDto {
     private String  itemName;
     private Integer quantity;
     private String  movementType;
-    private String  referenceNumber;
+    private String  referenceId;
     private String  createdBy;
     private String  notes;
 

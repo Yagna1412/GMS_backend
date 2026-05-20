@@ -2,6 +2,7 @@ package com.gms.backend.inventory.stockmanagement.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+
 import java.time.LocalDateTime;
 
 @Entity
@@ -14,7 +15,9 @@ import java.time.LocalDateTime;
 public class StockMovement {
 
     public enum MovementType {
-        INWARD, OUTWARD, ADJUSTMENT
+        INWARD,
+        OUTWARD,
+        ADJUSTMENT
     }
 
     @Id
@@ -31,14 +34,14 @@ public class StockMovement {
     private String itemName;
 
     @Column(nullable = false)
-    private Integer quantity;               // negative allowed for ADJUSTMENT
+    private Integer quantity;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private MovementType movementType;
 
     @Column(nullable = false)
-    private String referenceNumber;
+    private String referenceId;
 
     @Column(nullable = false)
     private String createdBy;
@@ -46,11 +49,13 @@ public class StockMovement {
     @Column(columnDefinition = "TEXT")
     private String notes;
 
-    @Column(nullable = false, updatable = false)
+    @Column(updatable = false)
     private LocalDateTime dateTime;
 
     @PrePersist
     protected void onCreate() {
-        dateTime = LocalDateTime.now();
+        if (dateTime == null) {
+            dateTime = LocalDateTime.now();
+        }
     }
 }

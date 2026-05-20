@@ -16,7 +16,7 @@ public class IssuePartsCreateDto {
     private Integer quantity;
 
     @NotBlank(message = "Reference number (Job Card Number) is required")
-    private String referenceNumber;
+    private String referenceId;
 
     private String notes;
 }

@@ -14,7 +14,7 @@ public class AdjustmentCreateDto {
     private Integer quantity;               // negative allowed — e.g. -2 for damage
 
     @NotBlank(message = "Reference number is required")
-    private String referenceNumber;
+    private String referenceId;
 
     @NotBlank(message = "Reason is mandatory for adjustments")
     private String notes;

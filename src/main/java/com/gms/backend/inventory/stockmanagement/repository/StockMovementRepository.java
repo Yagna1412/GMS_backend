@@ -12,18 +12,19 @@ import java.util.List;
 @Repository
 public interface StockMovementRepository extends JpaRepository<StockMovement, Long> {
 
-    // All movements newest first — main table
+    // All movements newest first
     List<StockMovement> findAllByOrderByDateTimeDesc();
 
-    // Filter by type — dropdown
-    List<StockMovement> findByMovementTypeOrderByDateTimeDesc(MovementType movementType);
-
+    // Filter by type
+    List<StockMovement> findByMovementTypeOrderByDateTimeDesc(
+            MovementType movementType
+    );
     // Search by SKU, item name, reference — search bar
     @Query("""
         SELECT s FROM StockMovement s
         WHERE LOWER(s.itemSku)         LIKE LOWER(CONCAT('%', :q, '%'))
            OR LOWER(s.itemName)        LIKE LOWER(CONCAT('%', :q, '%'))
-           OR LOWER(s.referenceNumber) LIKE LOWER(CONCAT('%', :q, '%'))
+           OR LOWER(s.referenceId) LIKE LOWER(CONCAT('%', :q, '%'))
         ORDER BY s.dateTime DESC
     """)
     List<StockMovement> search(@Param("q") String q);

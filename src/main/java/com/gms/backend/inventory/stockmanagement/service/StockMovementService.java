@@ -119,11 +119,11 @@ public class StockMovementService {
                 .itemName(item[1])
                 .quantity(dto.getQuantity())
                 .movementType(MovementType.INWARD)
-                .referenceNumber(dto.getReferenceNumber())
+                .referenceId(dto.getReferenceId())
                 .createdBy(createdBy)
                 .notes(dto.getNotes())
                 .build();
-        log.info("GRN created: ref={}", dto.getReferenceNumber());
+        log.info("GRN created: ref={}", dto.getReferenceId());
         return toDto(repo.save(movement));
     }
 
@@ -137,11 +137,11 @@ public class StockMovementService {
                 .itemName(item[1])
                 .quantity(dto.getQuantity())
                 .movementType(MovementType.OUTWARD)
-                .referenceNumber(dto.getReferenceNumber())
+                .referenceId(dto.getReferenceId())
                 .createdBy(createdBy)
                 .notes(dto.getNotes())
                 .build();
-        log.info("Issue Parts: ref={}", dto.getReferenceNumber());
+        log.info("Issue Parts: ref={}", dto.getReferenceId());
         return toDto(repo.save(movement));
     }
 
@@ -155,11 +155,11 @@ public class StockMovementService {
                 .itemName(item[1])
                 .quantity(dto.getQuantity())        // negative allowed
                 .movementType(MovementType.ADJUSTMENT)
-                .referenceNumber(dto.getReferenceNumber())
+                .referenceId(dto.getReferenceId())
                 .createdBy(createdBy)
                 .notes(dto.getNotes())              // mandatory reason
                 .build();
-        log.info("Adjustment: ref={}", dto.getReferenceNumber());
+        log.info("Adjustment: ref={}", dto.getReferenceId());
         return toDto(repo.save(movement));
     }
 
@@ -180,7 +180,7 @@ public class StockMovementService {
                 .itemName(s.getItemName())
                 .quantity(s.getQuantity())
                 .movementType(s.getMovementType() != null ? s.getMovementType().name() : null)
-                .referenceNumber(s.getReferenceNumber())
+                .referenceId(s.getReferenceId())
                 .createdBy(s.getCreatedBy())
                 .notes(s.getNotes())
                 .dateTime(s.getDateTime())

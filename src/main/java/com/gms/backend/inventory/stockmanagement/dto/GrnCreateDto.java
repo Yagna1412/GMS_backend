@@ -16,7 +16,7 @@ public class GrnCreateDto {
     private Integer quantity;
 
     @NotBlank(message = "Reference number (PO Number) is required")
-    private String referenceNumber;
+    private String referenceId;
 
     private String notes;
 }
