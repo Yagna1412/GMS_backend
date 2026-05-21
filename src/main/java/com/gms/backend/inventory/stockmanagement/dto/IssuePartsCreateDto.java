@@ -7,9 +7,10 @@ import lombok.Data;
 
 @Data
 public class IssuePartsCreateDto {
-
-    @NotNull(message = "Item ID is required")
+    @NotNull(message = "Item is required")
     private Long itemId;
+
+
 
     @NotNull(message = "Quantity is required")
     @Min(value = 1, message = "Quantity must be at least 1")

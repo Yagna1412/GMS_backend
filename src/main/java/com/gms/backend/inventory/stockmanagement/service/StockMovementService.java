@@ -112,9 +112,11 @@ public class StockMovementService {
     // ── GRN / Inward ──────────────────────────────────────────────────────
     @Transactional
     public StockMovementDto createGrn(GrnCreateDto dto, String createdBy) {
-        String[] item = resolveItem(dto.getItemId());
+        Long itemId = dto.getItemId();
+        if (itemId == null) throw new IllegalArgumentException("itemId is required");
+        String[] item = resolveItem(itemId);
         StockMovement movement = StockMovement.builder()
-                .itemId(dto.getItemId())
+                .itemId(itemId)
                 .itemSku(item[0])
                 .itemName(item[1])
                 .quantity(dto.getQuantity())
@@ -130,9 +132,11 @@ public class StockMovementService {
     // ── Issue Parts / Outward ─────────────────────────────────────────────
     @Transactional
     public StockMovementDto createIssueParts(IssuePartsCreateDto dto, String createdBy) {
-        String[] item = resolveItem(dto.getItemId());
+        Long itemId = dto.getItemId();
+        if (itemId == null) throw new IllegalArgumentException("itemId is required");
+        String[] item = resolveItem(itemId);
         StockMovement movement = StockMovement.builder()
-                .itemId(dto.getItemId())
+                .itemId(itemId)
                 .itemSku(item[0])
                 .itemName(item[1])
                 .quantity(dto.getQuantity())
@@ -148,9 +152,11 @@ public class StockMovementService {
     // ── Stock Adjustment ──────────────────────────────────────────────────
     @Transactional
     public StockMovementDto createAdjustment(AdjustmentCreateDto dto, String createdBy) {
-        String[] item = resolveItem(dto.getItemId());
+        Long itemId = dto.getItemId();
+        if (itemId == null) throw new IllegalArgumentException("itemId is required");
+        String[] item = resolveItem(itemId);
         StockMovement movement = StockMovement.builder()
-                .itemId(dto.getItemId())
+                .itemId(itemId)
                 .itemSku(item[0])
                 .itemName(item[1])
                 .quantity(dto.getQuantity())        // negative allowed

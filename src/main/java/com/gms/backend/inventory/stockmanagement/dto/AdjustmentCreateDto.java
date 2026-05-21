@@ -7,8 +7,10 @@ import lombok.Data;
 @Data
 public class AdjustmentCreateDto {
 
-    @NotNull(message = "Item ID is required")
-    private Long itemId;
+
+    @NotNull(message = "Item is required")
+    private Long itemId; // for client dropdown — send the numeric itemId
+
 
     @NotNull(message = "Quantity is required")
     private Integer quantity;               // negative allowed — e.g. -2 for damage

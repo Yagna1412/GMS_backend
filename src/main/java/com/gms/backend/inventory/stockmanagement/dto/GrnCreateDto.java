@@ -7,8 +7,7 @@ import lombok.Data;
 
 @Data
 public class GrnCreateDto {
-
-    @NotNull(message = "Item ID is required")
+    @NotNull(message = "Item is required")
     private Long itemId;
 
     @NotNull(message = "Quantity is required")
