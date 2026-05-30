@@ -11,11 +11,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/reports")
-@CrossOrigin(origins = "*", allowedHeaders = "*", methods = {
-    RequestMethod.GET, RequestMethod.POST,
-    RequestMethod.PUT, RequestMethod.DELETE, RequestMethod.OPTIONS
-})
+@RequestMapping("/api//reports")
+@CrossOrigin(origins = "*")
 public class ReportsController {
 
     @Autowired

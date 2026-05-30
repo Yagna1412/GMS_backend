@@ -92,19 +92,30 @@ public class DashboardService {
 
     // 5. RECENT SERVICES
     public List<RecentServiceDTO> getRecentServices(DashboardCustomer c) {
-        if (c == null) throw new RuntimeException("User not authenticated");
 
-        List<DashboardJobCard> jobs = jobRepo.findTop5ByCustomerOrderByIdDesc(c);
+        if (c == null)
+            throw new RuntimeException("User not authenticated");
+
+        List<DashboardJobCard> jobs =
+                jobRepo.findTop5ByCustomerOrderByIdDesc(c);
 
         return jobs.stream()
                 .map(job -> new RecentServiceDTO(
-                        job.getDate() != null ? job.getDate().toString() : "N/A",
-                        job.getServiceType() != null ? job.getServiceType() : "N/A",
-                        job.getBranch() != null ? job.getBranch() : "N/A",
+                        job.getDate() != null
+                                ? job.getDate().toString()
+                                : "N/A",
+
+                        job.getServiceType() != null
+                                ? job.getServiceType()
+                                : "N/A",
+
                         job.getAmount(),
-                        job.getStatus() != null ? job.getStatus() : "N/A"
+
+                        job.getStatus() != null
+                                ? job.getStatus()
+                                : "N/A"
                 ))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     // 6. VEHICLE - Return proper DTO with "number" field
